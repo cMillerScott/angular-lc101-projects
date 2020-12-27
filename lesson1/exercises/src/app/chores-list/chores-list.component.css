@@ -1,0 +1,15 @@
+.chores {
+    font-family: courier new;
+    font-size: large;
+    color:darkred;
+    background-color: darkseagreen;
+    border: ridge 2px darkred;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+li {
+    font-style: italic;
+}

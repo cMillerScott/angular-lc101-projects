@@ -1,0 +1,9 @@
+.movies {
+    background-color: burlywood;
+    color: darkgreen;
+    border: solid 2px darkgreen;
+    text-shadow: 1px 1px 2px darkolivegreen;
+    text-align: center;
+    font-size: large;
+    font-family: verdana;
+}
