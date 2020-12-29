@@ -1,5 +1,11 @@
 <div class="container">
-  <h2 class="centered">Mission Name: {{ missionName }}</h2>
+  <h2
+    class="centered"
+    (click)="editMissionName = true"
+    *ngIf="!editMissionName; else editMission"
+  >
+    Mission Name: {{ missionName }}
+  </h2>
   <br />
   <div class="row justify-content-center">
     <div class="candidates col-3">
@@ -25,23 +31,34 @@
     <div class="centered col-3">
       <h2>Sidekick</h2>
       <!-- Use *ngIf and the correct placeholder to display a sidekick's image -->
-      <img *ngIf="selected" src="{{ selected.image }}" alt="OOPS! No image available." />
+      <img
+        *ngIf="selected"
+        src="{{ selected.image }}"
+        alt="OOPS! No image available."
+      />
     </div>
 
     <div class="crew col-3">
       <h2>Selected Crew</h2>
       <ul>
-        <li *ngFor="let astronaut of crew">{{astronaut.name}}</li>
+        <li *ngFor="let astronaut of crew">{{ astronaut.name }}</li>
       </ul>
       <!-- Add a "Clear Crew List" button here. -->
-      <button *ngIf="crew.length > 0" (click)="crew = []">Clear Crew List</button>
+      <button *ngIf="crew.length > 0" (click)="crew = []">
+        Clear Crew List
+      </button>
     </div>
   </div>
   <hr />
   <div class="centered">
     <button (click)="selected = false">Clear Data & Image</button>
     <!-- Add a "Send on Mission" button here. -->
-    <button (click)="addToCrew(selected)">Send on Mission</button>
+    <button
+      *ngIf="selected && !crew.includes(selected) && crew.length <= 2"
+      (click)="addToCrew(selected)"
+    >
+      Send on Mission
+    </button>
   </div>
 </div>
 
@@ -50,6 +67,10 @@
   <h2 class="centered">
     Mission Name:
     <!-- Add a keyup.enter event that calls the changeMissionName function. -->
-    <input #newName type="text" />
+    <input
+      (keyup.enter)="changeMissionName(newName.value); editMissionName = false"
+      #newName
+      type="text"
+    />
   </h2>
 </ng-template>

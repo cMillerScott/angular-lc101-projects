@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./candidates.component.css"],
 })
 export class CandidatesComponent implements OnInit {
-  missionName = "LaunchCode Moonshot";
+  missionName: string = "LaunchCode Moonshot";
 
   candidates = [
     {
@@ -50,4 +50,7 @@ export class CandidatesComponent implements OnInit {
   }
 
   // BONUS: Code the changeMissionName function here:
+  changeMissionName(newName: string) {
+    this.missionName = newName;
+  }
 }
