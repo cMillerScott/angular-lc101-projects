@@ -6,9 +6,12 @@
   <hr />
   <input
     #newMovie
-    (keyup.enter)="addMovie(newMovie.value); newMovie.value = ''"
+    (keyup.enter)="message = addMovie(newMovie.value); newMovie.value = ''"
     type="text"
     placeholder="Enter Movie Title Here"
   />
-  <button (click)="addMovie(newMovie.value); newMovie.value = ''">Add</button>
+  <button (click)="message = addMovie(newMovie.value); newMovie.value = ''">
+    Add
+  </button>
+  <p class="error" *ngIf="message">{{ message }}</p>
 </div>

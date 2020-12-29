@@ -9,3 +9,8 @@
  .center {
     text-align: center;
  }
+
+ p {
+    color:red;
+    text-shadow: 2px 2px 4px saddlebrown;
+ }
